@@ -13,6 +13,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import clases.*;
+import utilidades.LineaListado;
 import utilidades.Utilidades;
 
 public class Principal {
@@ -25,7 +26,7 @@ public class Principal {
 			Empleado nuevo = new Empleado();
 			nuevo.setEmpleado();
 			emp.add(nuevo);
-			masEmpleados = Utilidades.esBoolean("¿Quieres introducir otro empleado? (S/N)");
+			masEmpleados = Utilidades.esBoolean("ï¿½Quieres introducir otro empleado? (S/N)");
 		} while (masEmpleados);
 	}
 
@@ -65,7 +66,7 @@ public class Principal {
 			}
 		}
 		if (!encontrado) {
-			System.out.println("No existe ningún empleado con DNI: " + dni);
+			System.out.println("No existe ningï¿½n empleado con DNI: " + dni);
 		}
 	}
 
@@ -87,14 +88,14 @@ public class Principal {
 			}
 		}
 		if (!encontrado) {
-			System.out.println("No existe ningún empleado con DNI: " + dni);
+			System.out.println("No existe ningï¿½n empleado con DNI: " + dni);
 		}
 	}
 
 	private static void zerrendatuLangileakAdinaz(List<Empleado> emp) {
 
 		System.out.println("-----LISTADO DE EMPLEADO ORDENADO POR EDAD--------");
-		// Ordenamos el array. Para ello copiamos la información en un array intermedio,
+		// Ordenamos el array. Para ello copiamos la informaciï¿½n en un array intermedio,
 		// para luego ordenarlo
 		ArrayList<Empleado> arrayOrdenado = new ArrayList<>();
 		Empleado masJoven;
@@ -116,10 +117,10 @@ public class Principal {
 		// Visualizamos el array ordenado
 		for (int i = 0; i < arrayOrdenado.size(); i++) {
 			if (i == 0) {
-				System.out.print("Este es el empleado más joven: ");
+				System.out.print("Este es el empleado mï¿½s joven: ");
 			}
 			if (i == emp.size() - 1) {
-				System.out.print("Este es el empleado más mayor: ");
+				System.out.print("Este es el empleado mï¿½s mayor: ");
 			}
 			System.out.println(arrayOrdenado.get(i).toString());
 		}
@@ -134,18 +135,18 @@ public class Principal {
 
 		// Visualizamos el array
 		for (int i = 0; i < emp.size(); i++) {
-			// Primero calculamos la diferencia de años y luego obtenemos solo los años
+			// Primero calculamos la diferencia de aï¿½os y luego obtenemos solo los aï¿½os
 			periodo = Period.between(emp.get(i).getFecNac(), emp.get(i).getFecAlta());
 			System.out.println("El empleado " + emp.get(i).getNomEmpleado() + " " + emp.get(i).getApeEmpleado()
-					+ " tenia " + periodo.getYears() + " cuando entró en la empresa");
+					+ " tenia " + periodo.getYears() + " cuando entrï¿½ en la empresa");
 		}
 	}
 
 	private static void zerrendatuLangileakEnpresaldia(List<Empleado> emp) {
 
-		System.out.println("-----LISTADO DE LOS EMPLEADOS SEGÚN SU ANTIGÜEDAD EN LA EMPRESA--------");
+		System.out.println("-----LISTADO DE LOS EMPLEADOS SEGï¿½N SU ANTIGï¿½EDAD EN LA EMPRESA--------");
 
-		// Ordenamos el array. Para ello copiamos la información en un array intermedio,
+		// Ordenamos el array. Para ello copiamos la informaciï¿½n en un array intermedio,
 		// para luego ordenarlo
 		ArrayList<Empleado> arrayOrdenado = new ArrayList<>();
 		Empleado masNuevo;
@@ -173,8 +174,8 @@ public class Principal {
 			// Primero calculamos la antiguedad
 			periodo = Period.between(arrayOrdenado.get(i).getFecAlta(), LocalDate.now());
 			System.out.println("El empleado " + arrayOrdenado.get(i).getNomEmpleado() + " "
-					+ arrayOrdenado.get(i).getApeEmpleado() + " tiene una antigüedad de: " + periodo.getYears()
-					+ " años y " + periodo.getMonths() + " meses");
+					+ arrayOrdenado.get(i).getApeEmpleado() + " tiene una antigï¿½edad de: " + periodo.getYears()
+					+ " aï¿½os y " + periodo.getMonths() + " meses");
 		}
 	}
 
@@ -183,13 +184,13 @@ public class Principal {
 		// Variable para encontrar el numero del sorteo
 		boolean noencontrado = true;
 
-		// Obtenemos la fecha del día
+		// Obtenemos la fecha del dï¿½a
 		LocalDateTime hoy = LocalDateTime.now();
 
 		/*
 		 * Random aleatorio = new Random(System.currentTimeMillis()); // Producir nuevo
-		 * int aleatorio entre 0 y 99 int intAletorio = aleatorio.nextInt(100); // Más
-		 * código
+		 * int aleatorio entre 0 y 99 int intAletorio = aleatorio.nextInt(100); // Mï¿½s
+		 * cï¿½digo
 		 * 
 		 * // Refrescar datos aleatorios aleatorio.setSeed(System.currentTimeMillis());
 		 * // ... o mejor aleatorio.setSeed(aleatorio.getLong());
@@ -204,14 +205,14 @@ public class Principal {
 			for (int i = 0; i < emp.size(); i++) {
 				if (emp.get(i).getNumSorteo() == numero) {
 					noencontrado = false;
-					System.out.println("El empleado premiado hoy día " + hoy.getDayOfMonth() + " de "
+					System.out.println("El empleado premiado hoy dï¿½a " + hoy.getDayOfMonth() + " de "
 							+ hoy.getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")) + " de "
 							+ hoy.getYear() + " es " + emp.get(i).getNomEmpleado() + " " + emp.get(i).getApeEmpleado()
-							+ " con el número " + numero);
-					// System.out.println("El empleado premiado hoy día " + hoy.getDayOfMonth() + "
+							+ " con el nï¿½mero " + numero);
+					// System.out.println("El empleado premiado hoy dï¿½a " + hoy.getDayOfMonth() + "
 					// de " + hoy.getMonth().toString() + " de " + hoy.getYear() + " es " +
 					// emp.get(i).getNomEmpleado() + " " + emp.get(i).getApeEmpleado() + " con el
-					// número " + numero);
+					// nï¿½mero " + numero);
 				}
 			}
 		}
@@ -223,7 +224,7 @@ public class Principal {
 		Empleado primero;
 
 		// Creamos un arraylist auxiliar para meter solo los empleados que cumplen en un
-		// mes concreto. Así luego podemos ordenarlo
+		// mes concreto. Asï¿½ luego podemos ordenarlo
 		ArrayList<Empleado> aux = new ArrayList<>();
 
 		for (int i = 0; i < emp.size(); i++) {
@@ -247,7 +248,7 @@ public class Principal {
 		System.out.println("-----------------LOS EMPLEADOS QUE CUMPLEN EN ESTE MES DE " + numMes + "-----------------");
 		for (int i = 0; i < aux.size(); i++) {
 			System.out.println("El empleado " + aux.get(i).getNomEmpleado() + " " + aux.get(i).getApeEmpleado()
-					+ " cuple los años el: " + aux.get(i).getFecNac().getDayOfMonth() + " de "
+					+ " cuple los aï¿½os el: " + aux.get(i).getFecNac().getDayOfMonth() + " de "
 					+ aux.get(i).getFecNac().getMonth().getDisplayName(TextStyle.FULL, new Locale("es", "ES")) + " de "
 					+ aux.get(i).getFecNac().getYear());
 		}
@@ -260,9 +261,9 @@ public class Principal {
 		List<LineaListado> listado = new ArrayList<>();
 
 		if (empleados.isEmpty()) {
-			System.out.println("No tenemos ningún empleado");
+			System.out.println("No tenemos ningï¿½n empleado");
 		} else {
-			// Filtramos la información en el array para el listado
+			// Filtramos la informaciï¿½n en el array para el listado
 			for (Empleado emp : empleados) {
 				encontrado = false;
 				for (LineaListado linea : listado) {
@@ -278,7 +279,7 @@ public class Principal {
 				}
 			}
 
-			// Ordenamos por número de veces (mayor a menor)
+			// Ordenamos por nï¿½mero de veces (mayor a menor)
 			for (int i = 0; i < listado.size(); i++) {
 				for (int j = i + 1; j < listado.size(); j++) {
 					if (listado.get(j).getNumero() > listado.get(i).getNumero()) {
@@ -290,8 +291,8 @@ public class Principal {
 			}
 
 			System.out.println("*****************LISTADO DE NOMBRES DE EMPLEADOS************************************");
-			System.out.println("\n\t\t\t NOMBRE \t\t NÚMERO DE PERSONAS");
-			// Imprimimos la información
+			System.out.println("\n\t\t\t NOMBRE \t\t Nï¿½MERO DE PERSONAS");
+			// Imprimimos la informaciï¿½n
 			for (LineaListado linea : listado) {
 				System.out.println("\t\t\t " + linea.getNombre() + "\t\t\t\t\t " + linea.getNumero());
 			}
@@ -308,24 +309,24 @@ public class Principal {
 		System.out.println("3. Listado de empleados ordenados por apellido");
 		System.out.println("4. Consultar/Modificar datos del empleado a partir del DNI");
 		System.out.println("5. Borrado de empleado a partir de DNI");
-		System.out.println("6. Listado de la edad de los empleados indicando el más joven y el más mayor");
+		System.out.println("6. Listado de la edad de los empleados indicando el mï¿½s joven y el mï¿½s mayor");
 		System.out.println("7. Listado de la edad de los empleados en el momento en el que entraron en la empresa");
-		System.out.println("8. Listado ordenado en  descendente de la antigüedad de los empleados");
+		System.out.println("8. Listado ordenado en  descendente de la antigï¿½edad de los empleados");
 		System.out.println("9. Sorteo Diario");
-		System.out.println("10. Estadísticas");
+		System.out.println("10. Estadï¿½sticas");
 		System.out.println("11. Salir");
-		resp = Utilidades.leerInt(1, 11, "ELIJA UNA OPCIÓN");
+		resp = Utilidades.leerInt(1, 11, "ELIJA UNA OPCIï¿½N");
 		return resp;
 	}
 
 	private static int subMenu() {
 		int resp;
 
-		System.out.println("\n*******************************ESTADÍSTICAS*****************************************");
-		System.out.println("1. Empleados que cumplen años en este mes");
-		System.out.println("2. Estadística de nombres");
+		System.out.println("\n*******************************ESTADï¿½STICAS*****************************************");
+		System.out.println("1. Empleados que cumplen aï¿½os en este mes");
+		System.out.println("2. Estadï¿½stica de nombres");
 
-		resp = Utilidades.leerInt(1, 2, "ELIJA UNA OPCIÓN");
+		resp = Utilidades.leerInt(1, 2, "ELIJA UNA OPCIï¿½N");
 		return resp;
 	}
 
@@ -340,7 +341,7 @@ public class Principal {
 		do {
 			opc = menu();
 			if (empleados.isEmpty() && opc > 1 && opc < 11) {
-				System.out.println("No hay ningún empleado");
+				System.out.println("No hay ningï¿½n empleado");
 			} else {
 				switch (opc) {
 				case 1:
@@ -378,7 +379,7 @@ public class Principal {
 						galdetegiaIzenak(empleados);
 					break;
 				default:
-					System.out.println("Opción erronea");
+					System.out.println("Opciï¿½n erronea");
 				}
 			}
 		} while (opc != 11);

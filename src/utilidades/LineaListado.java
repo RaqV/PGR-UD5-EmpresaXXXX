@@ -1,4 +1,4 @@
-package clases;
+package utilidades;
 
 public class LineaListado {
 	
